@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;  //Import date and time
 import java.util.Date;  //Import date and time
 
 class Stocks{
-	private String p_name, brand, c_name; 
+	private String p_name, c_name; 
 	private int stock_quantity;
 	private double price;
 	
@@ -13,20 +13,16 @@ class Stocks{
 		
 	}
 	
-	public Stocks(String p_name, String brand, int stock_quantity, double price){
-		this.p_name=p_name;
-		this.brand=brand;
-		this.stock_quantity=stock_quantity;
-		this.price=price;
+	public Stocks(String p_name, int stock_quantity, double price){
+		setProduct(p_name);
+		setStock_Quantity(stock_quantity);
+		setPrice(price);
 	}
 	
 	//getters 
 	public String getProduct(){
 		return p_name;
 	}  
-	public String getBrand(){
-		return brand;
-	}
 	public String getCompany(){
 		return c_name;
 	}
@@ -41,9 +37,6 @@ class Stocks{
 	public void setProduct(String p_name){
 		this.p_name=p_name;
 	}
-	public void setBrand(String brand){
-		this.brand=brand;
-	}
 	public void setCompany(String c_name){
 		this.c_name=c_name;
 	}
@@ -52,12 +45,6 @@ class Stocks{
 	}
 	public void setPrice(double price){
 		this.price=price;
-	}
-	
-	public Stocks(String p_name, int stock_quantity, double price){
-		setProduct(p_name);
-		setStock_Quantity(stock_quantity);
-		setPrice(price);
 	}
 }
 class StockDetails extends Stocks{
@@ -114,7 +101,6 @@ class StockDetails extends Stocks{
 			System.out.println("Welcome to the "+getCompany()+" shopping centre");
 			GregorianCalendar time = new GregorianCalendar();
 			int hour = time.get(Calendar.HOUR_OF_DAY);
-			int min = time.get(Calendar.MINUTE);
 			int day = time.get(Calendar.DAY_OF_MONTH);
 			int month = time.get(Calendar.MONTH) + 1;
 			int year = time.get(Calendar.YEAR);
@@ -182,7 +168,7 @@ class StockDetails extends Stocks{
 				System.out.println("|---------------------BILL---------------------------|");
 				System.out.println("|----------------------------------------------------|");
 				System.out.println("|Total Bill Amount: Rs."+final_price+"                          |");
-				System.out.println("|Purchase date: " + month + "/" + day + "/"+ year+"                            |");
+				System.out.println("|Purchase date: " + month + "/" + day + "/"+ year+"                           |");
 				System.out.println("|Purchase Time: "+dateFormat.format(dt)+"                          |");
 				System.out.println("|Thankyou For shopping..Have a nice day              |");
 				System.out.println("|----------------------------------------------------|");
